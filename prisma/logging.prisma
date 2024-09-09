@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./logging"
+}
+
+datasource logging {
+  provider = "sqlite"
+  url      = env("LOG_DIR")
+}
+
+model logging {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+}
